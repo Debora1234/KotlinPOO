@@ -1,0 +1,136 @@
+interface TriatlonCompetencia {
+    fun correr()
+    fun pedalear()
+    fun nadar()
+    fun competir()
+}
+
+open class Deportistas {
+    var nombre: String = "Maria"
+    var estatura: String = "1.68m"
+    var peso: String = "80kg"
+    var edad: Int = 10
+    
+    fun recomendacion(){
+       println("A descansar, para prepararse para el deporte")
+    }
+    
+    open fun competir(){
+       println("Estas listo para competir!!")
+    }
+}
+
+open class Runner : Deportistas(), TriatlonCompetencia {
+    var estilo: String = "100m lisos"
+    var velocidad: String = "10km/h"
+
+    override fun correr() {
+        println("El estilo de $nombre es $estilo, y lo está haciendo a una velocidad de $velocidad")
+    }
+
+    override fun pedalear() {
+        println("Runner no pedalea")
+    }
+
+    override fun nadar() {
+        println("Runner no nada")
+    }
+
+    override fun competir() {
+        println("Voy a correr!!")
+    }
+}
+
+open class Ciclista : Deportistas(), TriatlonCompetencia {
+    var tipoBici: String = "playera"
+    var velocidad: String = "10km/h"
+
+    override fun correr() {
+        println("Ciclista no corre")
+    }
+
+    override fun pedalear() {
+        println("El ciclista $nombre tiene una bici $tipoBici, y lo está haciendo a una velocidad de $velocidad")
+    }
+
+    override fun nadar() {
+        println("Ciclista no nada")
+    }
+
+    override fun competir() {
+        println("Voy a pedalear!!")
+    }
+}
+
+open class Nadador : Deportistas(), TriatlonCompetencia {
+    var estilo: String = "mariposa"
+    var velocidad: String = "10km/h"
+
+    override fun correr() {
+        println("Nadador no corre")
+    }
+
+    override fun pedalear() {
+        println("Nadador no pedalea")
+    }
+
+    override fun nadar() {
+        println("El nadador $nombre está nadando con el estilo $estilo, y lo está haciendo a una velocidad de $velocidad")
+    }
+
+    override fun competir() {
+        println("Voy a nadar!!")
+    }
+}
+
+class MiTriatleta : Deportistas(), TriatlonCompetencia {
+    override fun correr() {
+        println("Soy un TRIATLETA corriendo en una competencia de triatlón.")
+    }
+
+    override fun pedalear() {
+        println("Soy un TRIATLETA pedaleando en una competencia de triatlón.")
+    }
+
+    override fun nadar() {
+        println("Soy un TRIATLETA nadando en una competencia de triatlón.")
+    }
+
+    override fun competir() {
+        println("Soy un TRIATLETA y estoy listo para competir en varias disciplinas.")
+    }
+}
+
+fun main() {
+    val objetoDeportista: Deportistas = Deportistas()
+    println(objetoDeportista.nombre)
+    objetoDeportista.recomendacion()
+    objetoDeportista.competir()
+
+    val objetoRunner: Runner = Runner()
+    objetoRunner.nombre = "Jose"
+    objetoRunner.correr()
+    objetoRunner.pedalear()
+    objetoRunner.nadar()
+    objetoRunner.competir()
+
+    val objetoCiclista: Ciclista = Ciclista()
+    objetoCiclista.nombre= "Ana"
+    objetoCiclista.correr()
+    objetoCiclista.pedalear()
+    objetoCiclista.nadar()
+    objetoCiclista.competir()
+
+    val objetoNadador: Nadador = Nadador()
+    objetoNadador.nombre = "Pedro"
+    objetoNadador.correr()
+    objetoNadador.pedalear()
+    objetoNadador.nadar()
+    objetoNadador.competir()
+
+    val objetoTriatleta: MiTriatleta = MiTriatleta()
+    objetoTriatleta.correr()
+    objetoTriatleta.pedalear()
+    objetoTriatleta.nadar()
+    objetoTriatleta.competir()
+}
